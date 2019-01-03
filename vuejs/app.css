@@ -1,0 +1,21 @@
+.btn-default {
+  border: none;
+  background-color: #999;
+  padding: 10px;
+  color: #fff;
+}
+
+.btn-primary {
+  border: none;
+  background-color: #3366cc;
+  padding: 10px;
+  color: #fff;
+}
+
+.small {
+  padding: 2px;
+}
+
+.big {
+  padding: 20px;
+}

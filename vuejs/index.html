@@ -1,0 +1,195 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="app.css">
+  <title>Vue JS</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+
+  <!-- aula 1 -->
+
+  <div id="app">
+    <p>{{ mensagem }}</p>
+    <p>Meu nome é: {{ nome }} | {{ estudante }}</p>
+    <input v-on:input="mudarNome" />
+
+    <p>Curso: {{ curso }}</p>
+    <a v-bind:href="docs" v-bind:title="Teste">VueJs</a>
+    <p>Descrição: <span v-text='test'></span></p>
+    </br></br>
+
+
+    <button v-on:click.left="onClick">Botão Esquerdo</button>
+    <br>
+    <button v-on:click.middle="onClick">Botão do meio</button>
+    <br>
+    <button v-on:click.right="onClick">Botão Direito</button>
+    <br>
+    <button v-on:click.right.prevent="onClick">Sem menu de contexto</button>
+  </div>
+
+  <div id="app2">
+    <ul>
+      <li v-for="cor in cores">{{cor}}</li>
+    </ul>
+  </div>
+
+  <!-- aula 2 -->
+  <!-- Diretivas são codigos ao markup html e ele vai interpretar as regras e rotinas para executar o cógigo -->
+
+  <!-- aula 3 -->
+
+  <div id="app3">
+    <h1 v-if="status">{{ titulo }}</h1>
+
+    <p v-if="texto">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi voluptatem optio, asperiores
+      obcaecati minima nobis quis iure explicabo quibusdam veritatis assumenda nihil quae laborum velit cum fugiat.
+      Possimus, id porro.</p>
+
+    <p v-else>Não existe texto!</p>
+  </div>
+
+  <div id="app3b">
+    <div v-if="usuario.id == 1">
+      Id: {{ usuario.id}}</br>
+      Nome: {{ usuario.nome}}</br>
+      Profissão: {{ usuario.profissão}}</br>
+    </div>
+    <div v-else>Nenhum usuario com o id = 1 foi informado!</div>
+  </div>
+
+  <!-- aula 4 -->
+
+  <div id="app4">
+    <ul>
+      <li v-for='item in linguagens'>{{item.nome}}</li>
+    </ul>
+
+    <ul>
+      <li v-for='(item, index) in linguagens'>
+        {{ index }} - {{item.nome}}</li>
+    </ul>
+  </div>
+
+  <!-- aula 5 -->
+
+  <div id="app5">
+    <label for="">Nome</label></br>
+    <input type="text" v-model="nome">
+
+    </br></br>
+
+    <label for="">Telefone</label></br>
+    <input type="text" v-model="telefone">
+
+    </br></br>
+
+    <label for="">Deseja receber nossas novidades?</label></br>
+    <input type="radio" value="Sim" v-model="novidades"> Sim
+    <input type="radio" value="Não" v-model="novidades"> Não
+
+    </br></br>
+
+    <label for="">Interreses</label></br>
+    <input type="checkbox" value="Futebol" v-model="interesses"> Futebol
+    <input type="checkbox" value="Videogame" v-model="interesses"> Videogame
+    <input type="checkbox" value="Carros" v-model="interesses"> Carros
+
+    </br></br>
+
+    <label for="">Como nos conheceu?</label></br>
+    <select name="" v-model="conheceu">
+      <option value="">Escolha</option>
+      <option value="Google">Google</option>
+      <option value="TV">TV</option>
+      <option value="Revista">Revista</option>
+    </select>
+
+    </br></br>
+
+    <button type="submit">Enviar</button>
+
+    </br></br>
+
+    <h1>Prévia das Informações</h1>
+
+    Nome: {{ nome }} </br>
+    Telefone: {{ telefone }}</br>
+    Deseja receber nossas novidades?: {{ novidades }}</br>
+    Interesses: {{ interesses }}</br>
+    Conheceu: {{ conheceu }}</br>
+  </div>
+
+  <!-- aula 6 -->
+
+  <div id="app6">
+    <h1>{{ titulo}}</h1>
+    <img v-bind:src="imagem" v-bind:title="title">
+  </div>
+
+  </br></br>
+
+  <!-- aula 7 -->
+
+  <div id="app7">
+    <h1>{{ titulo }}}</h1>
+
+    <button class="btn-primary" v-bind:class="btnClassEnviar">Enviar</button>
+    <button class="btn-default" v-bind:class="btnClassLimpar">Limpar</button>
+  </div>
+
+  <div id="app7b">
+    <h1>{{ titulo }}}</h1>
+
+    <button class="btn-primary" v-bind:class="btnClassEnviar">Enviar</button>
+    <button class="btn-default" v-bind:class="btnClassLimpar">Limpar</button>
+  </div>
+
+  <!-- aula 14 -->
+
+  <div id="app14">
+    <p v-once>Nome inteiro: {{ name }}</p>
+    <p>Nome: {{ getName() }}</p>
+  </div>
+
+  <!-- aula 15 -->
+
+  <div id="app15">
+    <p v-html="curso">Nome do Curso: {{ curso }}</p>
+  </div>
+
+  <!-- aula 16 -->
+  <div id="app16">
+    <button v-on:click="incrementar">clique</button>
+    <p>Botão clicado {{ cliques }} vezes</p>
+  </div>
+
+  <!-- aula 17 -->
+  <div id="app17">
+    <div v-on:mousemove="atualizarCoordenadas" style="width: 300px; height: 200px; border: 1px solid #ccc">
+      <p>
+        Coordenadas X: {{ x }} e Coordenadas y: {{ y }}
+      </p>
+    </div>
+  </div>
+
+  <br>
+  <!-- aula 18 -->
+  <div id="app18">
+    <input v-on:blur="exibirNome" />
+    <p> {{ nome }} </p>
+
+    <input v-on:blur="exibirNome2('Meu nome é:', $event)" />
+    <p> {{ nome2 }} </p>
+  </div>
+  </br>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
